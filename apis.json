@@ -1,0 +1,202 @@
+{
+    "name": "Plivo",
+    "description": "Voice & SMS API Platform: Plivo enables businesses and developers to tap into powerful Voice and SMS capabilities without carrier lock-in.",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/1113-plivo.jpg",
+    "tags": [
+        "have api",
+        "imports",
+        "messages",
+        "relative data",
+        "service api",
+        "streams",
+        "target",
+        "telecommunications"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/plivo\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "Plivo SMS",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/1113-plivo.jpg",
+            "humanURL": "http:\/\/plivo.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/plivo-sms.json"
+                },
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/plivo-sms-openapi.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/plivo-sms-postman-collection.json"
+                }
+            ]
+        },
+        {
+            "name": "Codenvy Account API",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/1113-plivo.jpg",
+            "humanURL": "http:\/\/plivo.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/codenvy-account-api.json"
+                },
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/codenvy-account-api-openapi.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/codenvy-account-api-postman-collection.json"
+                }
+            ]
+        },
+        {
+            "name": "Plivo",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/1113-plivo.jpg",
+            "humanURL": "http:\/\/plivo.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/plivo.json"
+                },
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/plivo-openapi.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/plivo-postman-collection.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": ".NET Library",
+            "url": "https:\/\/www.plivo.com\/docs\/helpers\/dotnet\/"
+        },
+        {
+            "type": "Android SDK",
+            "url": "https:\/\/www.plivo.com\/docs\/sdk\/android\/"
+        },
+        {
+            "type": "Base",
+            "url": "https:\/\/api.plivo.com"
+        },
+        {
+            "type": "Blog",
+            "url": "http:\/\/blog.plivo.com"
+        },
+        {
+            "type": "Blog RSS",
+            "url": "http:\/\/blog.plivo.com\/rss"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/plivo"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "http:\/\/www.crunchbase.com\/company\/plivo"
+        },
+        {
+            "type": "Documentation",
+            "url": "https:\/\/plivo.com\/docs\/"
+        },
+        {
+            "type": "Email",
+            "url": "marketing@plivo.com"
+        },
+        {
+            "type": "Email",
+            "url": "legalrequests@plivo.com"
+        },
+        {
+            "type": "Email",
+            "url": "privacy@plivo.com"
+        },
+        {
+            "type": "FAQ",
+            "url": "https:\/\/plivo.com\/faq\/"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/plivo"
+        },
+        {
+            "type": "iOS SDK",
+            "url": "https:\/\/www.plivo.com\/docs\/sdk\/ios\/"
+        },
+        {
+            "type": "Java SDK",
+            "url": "https:\/\/www.plivo.com\/docs\/helpers\/java\/"
+        },
+        {
+            "type": "LinkedIn",
+            "url": "https:\/\/www.linkedin.com\/company\/plivo-inc\/"
+        },
+        {
+            "type": "Node.js Library",
+            "url": "https:\/\/www.plivo.com\/docs\/helpers\/node\/"
+        },
+        {
+            "type": "PHP SDK",
+            "url": "https:\/\/www.plivo.com\/docs\/helpers\/php\/"
+        },
+        {
+            "type": "Pricing",
+            "url": "https:\/\/plivo.com\/pricing\/"
+        },
+        {
+            "type": "Privacy",
+            "url": "https:\/\/plivo.com\/privacy\/"
+        },
+        {
+            "type": "Ruby Library",
+            "url": "https:\/\/www.plivo.com\/docs\/helpers\/python"
+        },
+        {
+            "type": "Registration",
+            "url": "https:\/\/manage.plivo.com\/accounts\/register\/"
+        },
+        {
+            "type": "Status",
+            "url": "https:\/\/status.plivo.com\/"
+        },
+        {
+            "type": "Terms of Service",
+            "url": "https:\/\/plivo.com\/terms\/"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/plivo"
+        },
+        {
+            "type": "Website",
+            "url": "http:\/\/\/account"
+        },
+        {
+            "type": "Website",
+            "url": "http:\/\/plivo.com"
+        },
+        {
+            "type": "Website",
+            "url": "https:\/\/www.plivo.com"
+        }
+    ]
+}
