@@ -1,0 +1,176 @@
+{
+    "id": "03a74a904c56dd533d7d3d4d20f1544a",
+    "name": "Plivo SMS",
+    "description": null,
+    "auth": null,
+    "events": null,
+    "variables": [],
+    "order": [],
+    "folders_order": [],
+    "folders": [],
+    "requests": [
+        {
+            "id": "9e4c80ac54a2e2f6db2ffa375df2ab59",
+            "name": "Message",
+            "url": "httpsapi.plivo.comv1\/{auth_id}\/Message\/",
+            "description": "Get details of a message.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "auth_id",
+                    "description": "AUTH TOKEN Your Plivo AUTH ID and AUTH TOKEN can be found when you login to your dashboard.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Used to display the number of results per page. The maximum number of results that can be fetched is 20.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "offset",
+                    "description": "Denotes the number of value items by which the results should be offset. Eg:- If the result contains a 1000 values and limit is set to 10 and offset is set to 705, then values 706 through 715 are displayed in the results. This parameter is also used for pagination of the results.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "03a74a904c56dd533d7d3d4d20f1544a",
+            "rawModeData": ""
+        },
+        {
+            "id": "870e04fc836a98949c908c7fee4224e1",
+            "name": "Send Message",
+            "url": "httpsapi.plivo.comv1\/{auth_id}\/Message\/",
+            "description": "This API enables you to send messages via Plivou2019s SMS service.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "dst",
+                    "description": "The number to which the message needs to be sent. Regular phone numbers must be prefixed with the country code but without the + sign. For e.g, a USA phone number would be, `15677654321`, with 1 denoting the country code. Multiple numbers can be added by using a delimiter.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "log",
+                    "description": "If set to false, the content of this message will not be logged on the Plivo infrastructure and the dst value will be masked. (e.g., 141XXXXX528) Defaults to true.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "method",
+                    "description": "The method used to call the url. Defaults to POST.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "src",
+                    "description": "The phone number to be used as the caller id (with the country code). For e.g. a USA number, `15671234567`. If youre sending messages to U.S. and Canada, you need to use the numbers you purchased with Plivo.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "text",
+                    "description": "The text to send encoded in Unicode UTF-8. The API accepts up to 1000 bytes of UTF-8 encoded text in a single API request. The text will be automatically split into multiple parts and sent if it will not fit into a single SMS. See notes below for more details.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "This API enables you to send messages via Plivou2019s SMS service.",
+                    "description": "AUTH TOKEN Your Plivo AUTH ID and AUTH TOKEN can be found when you login to your dashboard.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "type",
+                    "description": "The type of message. Should be sms for a text message. Defaults to sms.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "url",
+                    "description": "The URL to which with the status of the message is sent.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "03a74a904c56dd533d7d3d4d20f1544a",
+            "rawModeData": ""
+        },
+        {
+            "id": "407ebccfe6a31fa264f696e9f7c79e23",
+            "name": "Message",
+            "url": "httpsapi.plivo.comv1\/{auth_id}\/Message\/{message_uuid}\/",
+            "description": "Get details of a single message.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "auth_id",
+                    "description": "AUTH TOKEN Your Plivo AUTH ID and AUTH TOKEN can be found when you login to your dashboard.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "message_uuid",
+                    "description": "The message unique id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "03a74a904c56dd533d7d3d4d20f1544a",
+            "rawModeData": ""
+        }
+    ]
+}
