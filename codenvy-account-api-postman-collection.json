@@ -1,5 +1,5 @@
 {
-    "id": "3bd66d0761d0f589afe9ab68ad9ea39f",
+    "id": "d1fc1edbb23ceab68929216ed1e64806",
     "name": "Codenvy Account API",
     "description": null,
     "auth": null,
@@ -10,7 +10,7 @@
     "folders": [],
     "requests": [
         {
-            "id": "ae1edf11146a2bea6c1ac9d68d1dd630",
+            "id": "b537c35d7ed3940ee83b7319d6a2b7d3",
             "name": "Get Account",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/account",
             "description": "This API call returns a JSON with all user membership in a single or multiple accounts",
@@ -29,11 +29,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "c29b0d67c0e399fd49437439fabb66f5",
+            "id": "783a343d1b5dee94453551ce7316996f",
             "name": "Post Account",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/account",
             "description": "Create a new account",
@@ -60,11 +60,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "cd163ba0e7b08266320bb10bfc3d844c",
+            "id": "1d223b0e207dc787825d0bcb7381772a",
             "name": "Get Account Find",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/account\/find",
             "description": "Get account information by its name. JSON with account details is returned. This API call requires system\/admin or system\/manager role.",
@@ -91,11 +91,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "af776e604731405a3f3e146e46064cb2",
+            "id": "0742bf64788b37e08ad8fe26d403c7b2",
             "name": "Get Account Memberships",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/account\/memberships",
             "description": "ID of a user should be specified as a query parameter. JSON with membership details is returned. For this API call system\/admin or system\/manager role is required",
@@ -122,11 +122,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "cbad75d9651cb9ba62eb704c217bd3ae",
+            "id": "737a3de601f0dc6ff67d528856d18880",
             "name": "Post Account Subscriptions",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/account\/subscriptions",
             "description": "Add a new subscription to an account. JSON with subscription details is sent. Roles: account\/owner, system\/admin.",
@@ -153,11 +153,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "6d9a9fb4e38ed170df157738ad9b61d1",
+            "id": "fed039f3f39491136c18d1945d43c6f3",
             "name": "Delete Account Subscriptions Subscriptionid",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/account\/subscriptions\/{subscriptionId}",
             "description": "Remove subscription from account. Roles: account\/owner, system\/admin.",
@@ -184,11 +184,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "aefc7b9bbe44c74d630f7bcb3459997d",
+            "id": "5ebf7fd1b5dd864a2e0e77c33dcd06a2",
             "name": "Get Account Subscriptions Subscriptionid",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/account\/subscriptions\/{subscriptionId}",
             "description": "Get information on a particular subscription by its unique ID.",
@@ -215,11 +215,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "76c27585693038d01ae5384bb1905c46",
+            "id": "895015403677bf0db178c0ecf6fc001e",
             "name": "Get Account Accountid Subscriptions",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/account\/{accountId}\/subscriptions",
             "description": "Get information on account subscriptions. This API call requires account\/owner, account\/member, system\/admin or system\/manager role.",
@@ -253,11 +253,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "cba8311edf9e6ce79e9d27f6a30df472",
+            "id": "e81ca2873c6fda1c0032f5ffc4117a7b",
             "name": "Delete Account",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/account\/{id}",
             "description": "Remove subscription from account. JSON with subscription details is sent. Can be performed only by system\/admin.",
@@ -284,11 +284,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "e69c6a81fcd18d43c7b1d95bf8fe0697",
+            "id": "6dff4e835391ae8fb6fc15fc62c3c17d",
             "name": "Get Account",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/account\/{id}",
             "description": "Get account information by its ID. JSON with account details is returned. This API call requires account\/owner, system\/admin or system\/manager role.",
@@ -315,11 +315,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "4debae0cd97ce7d141e3337b216f1260",
+            "id": "faf5a74ae697493c599611aefaeb6f8f",
             "name": "Post Account",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/account\/{id}",
             "description": "Update account. This API call requires account\/owner role.",
@@ -353,11 +353,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "b1053bd9f55d9b27bfa8d6f2086b6f1e",
+            "id": "c3883445282b77eab72fbc28e779d25c",
             "name": "Delete Account Attribute",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/account\/{id}\/attribute",
             "description": "Remove attribute from an account. Attribute name is used as a quary parameter. For this API request account\/owner, system\/admin or system\/manager role is required",
@@ -391,11 +391,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "fbcb3bad00893777d608995177e28889",
+            "id": "cbd573ef1ab307aeabb1a47fd5fc7fa3",
             "name": "Get Account Members",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/account\/{id}\/members",
             "description": "Get all members for a specific account. This API call requires account\/owner, system\/admin or system\/manager role.",
@@ -422,11 +422,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "6b1472cd3018f91416ee8c71939634fb",
+            "id": "d0caa714ae5effdc1deb7ae3b1601627",
             "name": "Post Account Members",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/account\/{id}\/members",
             "description": "Add a new user to an account. This user will have account\/member role. This API call requires account\/owner, system\/admin or system\/manager role.",
@@ -460,11 +460,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "ff2a5c4ad84e2f5ef47b25d9ef27244c",
+            "id": "d1a16ff5b0cf1a5a750fd279ccb4ff82",
             "name": "Delete Account Members User",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/account\/{id}\/members\/{userid}",
             "description": "Remove user from a specific account. This API call requires account\/owner, system\/admin or system\/manager role.",
@@ -498,11 +498,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "d33e089af72bf3fdf85b7ca46893b3c3",
+            "id": "bac4439954455605a540bb1c20b20091",
             "name": "Get Account Resources",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/account\/{id}\/resources",
             "description": "Returns used resources, provided by subscriptions. Roles: account\/owner, account\/member, system\/manager, system\/admin.",
@@ -536,11 +536,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "cacb521a5baa7866b4a6c523e085536d",
+            "id": "cdc0f0eb1b4e9b7d4eefffb872f89b2d",
             "name": "Post Account Resources",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/account\/{id}\/resources",
             "description": "Redistributes resources between workspaces. Roles: account\/owner, system\/manager, system\/admin.",
@@ -574,11 +574,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "43165c01c9c233f2d646e4dadc7d8fb5",
+            "id": "e43e5a56b0d2a6898c6480250338c4ba",
             "name": "Post Blogs",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/blogs\/",
             "description": "Creates a new Story.",
@@ -640,11 +640,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "c3c33729c67f2daa94dc6bc7e62564c7",
+            "id": "32d3109fb30308e3b72f160a3ec06a1a",
             "name": "Put Blogs",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/blogs\/:id",
             "description": "Updates the Story.",
@@ -713,11 +713,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "7c005b0e71a341392a3d75a26c4165c8",
+            "id": "d74a77b668fcf97169d02b4a1b73d379",
             "name": "Post Blogs Comments",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/blogs\/:id\/comments",
             "description": "Creates a comment for the Story.",
@@ -751,11 +751,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "9e65c57eb7b7a1ad21a3133e39427a76",
+            "id": "41ec241eab8c27b2f9d4921170664fa3",
             "name": "Post Collections",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/collections",
             "description": "Creates new a collection.",
@@ -810,11 +810,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "611e11b4e4a28a38b0d4e8f2f52d613a",
+            "id": "4088310d593b82326fa86b7b0ae014d3",
             "name": "Put Collections",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/collections\/:id",
             "description": "Updates collection.",
@@ -876,11 +876,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "4266706b4f9729505daab71b3cfba0fe",
+            "id": "83e855d554ac5b7390e6adea54464e3b",
             "name": "Post Comments Comments",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/comments\/:id\/comments",
             "description": "Creates a reply to an existing comment. Comments can only be nested one level deep, you cannot reply to a reply of a comment. If a comment has a non-null parent_id value then it cannot be replied to.",
@@ -907,11 +907,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "acb6f57efb4b7b3148749612e955dd3f",
+            "id": "3d4c94fd587efb694f549e0a35a2a484",
             "name": "Post Photos",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/photos",
             "description": "Create a new photo on behalf of the user, and receive an upload key in exchange.",
@@ -1022,11 +1022,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "1ab0d0270408cd4a76cdc7b71a3d4323",
+            "id": "20db018556aeb31363f5984174f3f5d5",
             "name": "Put Photos",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/photos\/:id",
             "description": "Allows the client application to update user-editable information on a photo.nnnResource URLnnhttps:\/\/api.500px.com\/v1\/photos\/:idnnnnAuthenticationnnRequired; OAuth. The client application must use the OAuth access token issued for the owner of the photo to access this resouce.nnnParametersnnThe application must provide the ID of the photo to update in the URL of the request. The following parameters are recognized when included in the query string or POST body:nnnnname: Title of the photo, up t",
@@ -1172,11 +1172,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "1cd25a186dc97569dc662b12aa331339",
+            "id": "cd04639a07b03a955249c75aecd7c1cd",
             "name": "Post Photos Comments",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/photos\/:id\/comments",
             "description": "Creates a new comment for the photo.",
@@ -1210,11 +1210,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "a2c77f0066ff4252ca62f1334634e648",
+            "id": "c25f3bbb2a0ffe427ded179dcaa2f27c",
             "name": "Post Photos Favorite",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/photos\/:id\/favorite",
             "description": "Adds the photo to users list of favorites.",
@@ -1241,11 +1241,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "ec3a395338fbc0e689f14925ab4a06e6",
+            "id": "4ff6f4e890ee5d6f3b15cffcb0497179",
             "name": "Get Photos Favorites",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/photos\/:id\/favorites",
             "description": "Returns all users that had favorite that photo.",
@@ -1279,11 +1279,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "183021d78cbaa1fe356ac0e30360203c",
+            "id": "011109d1d1caf5479c905e313751fe0e",
             "name": "Post Photos Report",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/photos\/:id\/report",
             "description": "Allows to report a photo.",
@@ -1310,11 +1310,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "8e4c4d3b15afb7af2be55a62cbde8864",
+            "id": "19bc776860a34c3f696cf99eee4450cc",
             "name": "Post Photos Tags",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/photos\/:id\/tags",
             "description": "Adds tags to the photo. Accepts one or multiple coma separated tags.",
@@ -1348,11 +1348,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "511699dd33e1cb272d67c2cb92fe0b1e",
+            "id": "4961918cbc01e0b07e71678e893c6672",
             "name": "Post Photos Vote",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/photos\/:id\/vote",
             "description": "Allows the user to vote for a photo.",
@@ -1386,11 +1386,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "9a524dabd14a70393b8250aee59d5a10",
+            "id": "7fc617ec8ca125b70b18a1375021192e",
             "name": "Get Photos Votes",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/photos\/:id\/votes",
             "description": "Returns all users that had liked this photo.",
@@ -1424,11 +1424,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "b632d05f2c114ef522f3fff9bc5c6724",
+            "id": "6908d3f82b8bd8a1cc62fd71d1fa52db",
             "name": "Get Photos Search",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/photos\/search",
             "description": "Returns a listing of twenty (up to one hundred) photos from search results for a specified tag, keyword, or location.",
@@ -1581,11 +1581,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "0e4b3786f3a1f9522e60cec65055b56f",
+            "id": "c087f546ae887d59c0c1fe450401fb4e",
             "name": "Post Photos Upload",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/photos\/upload",
             "description": "This is a new photo upload endpoint. It is currently in beta.nCreate a new photo on behalf of the user and upload a file.nfile parameter is passed in multipart\/form-data, other parameters are passed as query parametrs or multipart\/form-data.",
@@ -1696,11 +1696,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "6e1facc0bbde909a4fa13ed95214e0bb",
+            "id": "bed71aba46fcd09d8dd53ce755e77171",
             "name": "Post Upload",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/upload",
             "description": "Allows an application to upload the photo file.nnNote that this endpoint is at the upload.500px.com domain, not the api.500px.com domain.",
@@ -1734,11 +1734,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "3ea01e74ac525cd0a0d4d55d658c8353",
+            "id": "3cac6b5c4f46da9763e902d70dec56fb",
             "name": "Get Users",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/users",
             "description": "Returns the profile information for the current user.",
@@ -1757,11 +1757,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "241e15b0f7a9306af03b0d45f65c48d4",
+            "id": "8c36acb59ba06445c6500fcfcfcd595d",
             "name": "Get Users Followers",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/users\/:id\/followers",
             "description": "Returns a list of users who follow the specified user.",
@@ -1802,11 +1802,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "fb37496d6d2321796c1ff32bfde9dd48",
+            "id": "85298ab5bcd1fce5dbb741fb49b60a95",
             "name": "Post Users Friends",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/users\/:id\/friends",
             "description": "Add the user to the list of followers.",
@@ -1833,11 +1833,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "006675b1801f3aef7084254164dcfd14",
+            "id": "c904fa59601bf5f6565e2a3a16e7f019",
             "name": "Get Users Search",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/users\/search",
             "description": "Return listing of ten (up to one hundred) users from search results for a specified search term.",
@@ -1864,11 +1864,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         },
         {
-            "id": "d14af27c1684605137045c9383661aa6",
+            "id": "af7878f5f4822274dbdcfddf40729e17",
             "name": "Get Users Show",
             "url": "\/accounthttps:\/\/codenvy.com\/api\/users\/show",
             "description": "Returns the profile information for a specified user.",
@@ -1909,7 +1909,7 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "3bd66d0761d0f589afe9ab68ad9ea39f",
+            "collectionId": "d1fc1edbb23ceab68929216ed1e64806",
             "rawModeData": ""
         }
     ]
