@@ -12,8 +12,8 @@
         "target",
         "telecommunications"
     ],
-    "created": "2019-12-19",
-    "modified": "2019-12-19",
+    "created": "2019-12-21",
+    "modified": "2019-12-21",
     "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/plivo\/master\/apis.json",
     "specificationVersion": "0.14",
     "apis": [
@@ -31,11 +31,11 @@
                 },
                 {
                     "type": "x-openapi",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/plivo-sms-openapi.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/plivo\/master\/plivo-sms-openapi.json"
                 },
                 {
                     "type": "x-postman-collecction",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/plivo-sms-postman-collection.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/plivo\/master\/plivo-sms-postman-collection.json"
                 }
             ]
         },
@@ -53,11 +53,11 @@
                 },
                 {
                     "type": "x-openapi",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/codenvy-account-api-openapi.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/plivo\/master\/codenvy-account-api-openapi.json"
                 },
                 {
                     "type": "x-postman-collecction",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/codenvy-account-api-postman-collection.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/plivo\/master\/codenvy-account-api-postman-collection.json"
                 }
             ]
         },
@@ -75,17 +75,21 @@
                 },
                 {
                     "type": "x-openapi",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/plivo-openapi.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/plivo\/master\/plivo-openapi.json"
                 },
                 {
                     "type": "x-postman-collecction",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/plivo-postman-collection.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/plivo\/master\/plivo-postman-collection.json"
                 }
             ]
         }
     ],
     "include": [],
     "x-common": [
+        {
+            "type": "APIs.json",
+            "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/apis.json"
+        },
         {
             "type": ".NET Library",
             "url": "https:\/\/www.plivo.com\/docs\/helpers\/dotnet\/"
