@@ -1,5 +1,5 @@
 {
-    "id": "03a74a904c56dd533d7d3d4d20f1544a",
+    "id": "e3e910341aa16e8058dc280e072abe10",
     "name": "Plivo SMS",
     "description": null,
     "auth": null,
@@ -10,7 +10,7 @@
     "folders": [],
     "requests": [
         {
-            "id": "9e4c80ac54a2e2f6db2ffa375df2ab59",
+            "id": "fe2e190ff1c481a1213f6bd5b188cab8",
             "name": "Message",
             "url": "httpsapi.plivo.comv1\/{auth_id}\/Message\/",
             "description": "Get details of a message.",
@@ -51,11 +51,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "03a74a904c56dd533d7d3d4d20f1544a",
+            "collectionId": "e3e910341aa16e8058dc280e072abe10",
             "rawModeData": ""
         },
         {
-            "id": "870e04fc836a98949c908c7fee4224e1",
+            "id": "a9f4926a9cd6667ae93cf9657716b521",
             "name": "Send Message",
             "url": "httpsapi.plivo.comv1\/{auth_id}\/Message\/",
             "description": "This API enables you to send messages via Plivou2019s SMS service.",
@@ -131,11 +131,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "03a74a904c56dd533d7d3d4d20f1544a",
+            "collectionId": "e3e910341aa16e8058dc280e072abe10",
             "rawModeData": ""
         },
         {
-            "id": "407ebccfe6a31fa264f696e9f7c79e23",
+            "id": "6c56e51338dae7b9738386f0b41af2e2",
             "name": "Message",
             "url": "httpsapi.plivo.comv1\/{auth_id}\/Message\/{message_uuid}\/",
             "description": "Get details of a single message.",
@@ -169,7 +169,7 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "03a74a904c56dd533d7d3d4d20f1544a",
+            "collectionId": "e3e910341aa16e8058dc280e072abe10",
             "rawModeData": ""
         }
     ]
