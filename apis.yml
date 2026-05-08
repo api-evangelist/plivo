@@ -3,7 +3,7 @@ url: https://raw.githubusercontent.com/api-evangelist/plivo/refs/heads/main/apis
 name: Plivo
 x-type: company
 description: >-
-  Plivo is a cloud communications platform offering voice and SMS APIs to global carriers. The Plivo API exposes calls, messages, numbers, applications, and verification flows.
+  Plivo is a global communications platform offering programmable Voice, Messaging (SMS/MMS/WhatsApp), SIP Trunking, Verify, and Lookup APIs, plus an AI Voice Agent platform. The HTTP API is available at https://api.plivo.com/v1/ with HTTP Basic Auth using Auth ID and Auth Token credentials.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Communications
@@ -11,13 +11,314 @@ tags:
   - Voice
   - SMS
   - Messaging
+  - WhatsApp
+  - SIP Trunking
+  - Verify
 created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
-apis: []
+apis:
+  - aid: plivo:plivo-account-api
+    name: Plivo Account API
+    tags:
+      - Account
+      - Authentication
+    properties:
+      - url: https://www.plivo.com/docs/account/api/account/
+        type: Documentation
+      - url: https://www.plivo.com/docs/account/api/
+        type: API Reference
+    description: >-
+      The Plivo Account API exposes account-level details (auth ID, auth token, billing balance, address, account type, max-call configuration) and supports updating account properties.
+  - aid: plivo:plivo-subaccount-api
+    name: Plivo Subaccount API
+    tags:
+      - Subaccounts
+      - Multi-Tenant
+    properties:
+      - url: https://www.plivo.com/docs/account/api/subaccount/
+        type: Documentation
+    description: >-
+      The Plivo Subaccount API supports creating, updating, listing, activating, and deleting subaccounts under a parent Plivo account, enabling multi-tenant isolation of usage and billing.
+  - aid: plivo:plivo-application-api
+    name: Plivo Application API
+    tags:
+      - Applications
+      - Voice
+      - Webhooks
+    properties:
+      - url: https://www.plivo.com/docs/account/api/application/
+        type: Documentation
+    description: >-
+      The Plivo Application API manages voice applications — bundles of XML/answer/hangup/fallback URLs (and message URL bindings) used to control inbound and outbound call behavior.
+  - aid: plivo:plivo-sip-authentication-api
+    name: Plivo SIP Authentication API
+    tags:
+      - SIP
+      - Authentication
+      - Endpoints
+    properties:
+      - url: https://www.plivo.com/docs/account/api/sip-auth/
+        type: Documentation
+    description: >-
+      The Plivo SIP Authentication API issues per-account credentials used by SIP endpoints to register against Plivo's SIP infrastructure.
+  - aid: plivo:plivo-call-api
+    name: Plivo Voice Call API
+    tags:
+      - Voice
+      - Calls
+      - Outbound
+      - Inbound
+    properties:
+      - url: https://www.plivo.com/docs/voice/api/call/
+        type: Documentation
+      - url: https://www.plivo.com/docs/voice/api/
+        type: API Reference
+    description: >-
+      The Plivo Voice Call API initiates outbound calls, retrieves details for live and historical calls, and supports active-call control (transfer, record, play, speak, hangup, DTMF send) on in-progress calls.
+  - aid: plivo:plivo-conference-api
+    name: Plivo Conference API
+    tags:
+      - Voice
+      - Conferences
+    properties:
+      - url: https://www.plivo.com/docs/voice/api/conference/
+        type: Documentation
+    description: >-
+      The Plivo Conference API manages live conference rooms — listing, retrieving members, kicking, muting, deafening, recording, and playing media into a conference.
+  - aid: plivo:plivo-multiparty-call-api
+    name: Plivo Multiparty Call API
+    tags:
+      - Voice
+      - Multiparty
+    properties:
+      - url: https://www.plivo.com/docs/voice/api/multipartycall/
+        type: Documentation
+    description: >-
+      The Plivo Multiparty Call API supports building multi-participant calls programmatically — adding/removing participants, managing roles, recording, and barge/whisper supervisory actions.
+  - aid: plivo:plivo-recording-api
+    name: Plivo Recording API
+    tags:
+      - Voice
+      - Recordings
+      - Media
+    properties:
+      - url: https://www.plivo.com/docs/voice/api/recording/
+        type: Documentation
+    description: >-
+      The Plivo Recording API exposes call and conference recordings — listing, retrieving, downloading, and deleting recorded media.
+  - aid: plivo:plivo-endpoint-api
+    name: Plivo Endpoint API
+    tags:
+      - SIP
+      - Endpoints
+      - WebRTC
+    properties:
+      - url: https://www.plivo.com/docs/voice/api/endpoint/
+        type: Documentation
+    description: >-
+      The Plivo Endpoint API manages SIP/WebRTC endpoints (username/password/alias) used by softphones, browser SDKs, and devices to register and place/receive calls.
+  - aid: plivo:plivo-audio-stream-api
+    name: Plivo Audio Stream API
+    tags:
+      - Voice
+      - Streaming
+      - WebSocket
+      - AI
+    properties:
+      - url: https://www.plivo.com/docs/voice/api/audiostream/
+        type: Documentation
+    description: >-
+      The Plivo Audio Stream API attaches a real-time WebSocket audio stream to a live call, enabling AI voice agents, real-time transcription, and analytics.
+  - aid: plivo:plivo-verified-caller-id-api
+    name: Plivo Verified Caller ID API
+    tags:
+      - Voice
+      - Caller ID
+      - Verification
+    properties:
+      - url: https://www.plivo.com/docs/voice/api/verified-caller-id/
+        type: Documentation
+    description: >-
+      The Plivo Verified Caller ID API allows trial accounts to verify outbound caller IDs for use as the From number in outbound calls.
+  - aid: plivo:plivo-message-api
+    name: Plivo Message API
+    tags:
+      - SMS
+      - MMS
+      - WhatsApp
+      - Messaging
+    properties:
+      - url: https://www.plivo.com/docs/messaging/api/message/
+        type: Documentation
+      - url: https://www.plivo.com/docs/messaging/api/
+        type: API Reference
+    description: >-
+      The Plivo Message API sends and receives SMS, MMS, and WhatsApp messages, retrieves delivery status reports, and lists historical messages.
+  - aid: plivo:plivo-media-api
+    name: Plivo Media API
+    tags:
+      - MMS
+      - Media
+      - Uploads
+    properties:
+      - url: https://www.plivo.com/docs/messaging/api/media/
+        type: Documentation
+    description: >-
+      The Plivo Media API uploads, lists, retrieves, and deletes media files used as MMS or WhatsApp attachments.
+  - aid: plivo:plivo-powerpack-api
+    name: Plivo Powerpack API
+    tags:
+      - Messaging
+      - Number Pool
+      - Throughput
+    properties:
+      - url: https://www.plivo.com/docs/messaging/api/powerpack/
+        type: Documentation
+    description: >-
+      The Plivo Powerpack API creates and manages Powerpacks — pools of numbers that distribute outbound messaging traffic for higher throughput, sticky-sender behavior, and improved deliverability.
+  - aid: plivo:plivo-10dlc-api
+    name: Plivo 10DLC Brand and Campaign API
+    tags:
+      - 10DLC
+      - A2P
+      - Compliance
+      - Brand
+      - Campaign
+    properties:
+      - url: https://www.plivo.com/docs/messaging/api/10dlc/
+        type: Documentation
+    description: >-
+      The Plivo 10DLC API registers brands and campaigns with The Campaign Registry for US application-to-person (A2P) SMS compliance.
+  - aid: plivo:plivo-toll-free-verification-api
+    name: Plivo Toll-Free Verification API
+    tags:
+      - Toll-Free
+      - Compliance
+      - Verification
+    properties:
+      - url: https://www.plivo.com/docs/messaging/api/toll-free-verification/
+        type: Documentation
+    description: >-
+      The Plivo Toll-Free Verification API submits and tracks toll-free messaging verification cases required for sustained throughput on TFNs.
+  - aid: plivo:plivo-numbers-api
+    name: Plivo Numbers API
+    tags:
+      - Phone Numbers
+      - Provisioning
+      - DIDs
+    properties:
+      - url: https://www.plivo.com/docs/numbers/api/
+        type: Documentation
+    description: >-
+      The Plivo Numbers API searches the global number inventory, rents and releases phone numbers (long codes, toll-free, short codes, mobile numbers), and manages number application bindings.
+  - aid: plivo:plivo-pricing-api
+    name: Plivo Pricing API
+    tags:
+      - Pricing
+      - Rates
+    properties:
+      - url: https://www.plivo.com/docs/account/api/pricing/
+        type: Documentation
+    description: >-
+      The Plivo Pricing API retrieves current voice and messaging rates per ISO country code, supporting cost estimation and rate-card synchronization for downstream billing.
+  - aid: plivo:plivo-verify-api
+    name: Plivo Verify API
+    tags:
+      - Verify
+      - OTP
+      - 2FA
+      - Authentication
+    properties:
+      - url: https://www.plivo.com/docs/verify/api/
+        type: Documentation
+    description: >-
+      The Plivo Verify API delivers OTPs over SMS, voice, WhatsApp, or email and verifies user-supplied codes, supporting 2FA and identity-confirmation flows.
+  - aid: plivo:plivo-lookup-api
+    name: Plivo Lookup API
+    tags:
+      - Lookup
+      - Number Validation
+      - HLR
+      - Carrier
+    properties:
+      - url: https://www.plivo.com/docs/lookup/api/
+        type: Documentation
+    description: >-
+      The Plivo Lookup API validates phone numbers and returns formatting, country, line type, carrier, and reachability metadata to feed cleansing, fraud-prevention, and routing decisions.
+  - aid: plivo:plivo-zentrunk-sip-trunking-api
+    name: Plivo Zentrunk SIP Trunking API
+    tags:
+      - SIP
+      - Trunking
+      - Voice
+    properties:
+      - url: https://www.plivo.com/docs/sip-trunking/api/
+        type: Documentation
+    description: >-
+      The Plivo Zentrunk SIP Trunking API manages termination and origination SIP trunks — outbound trunks (credentials, IP ACLs, dial prefixes) and origination/inbound trunks (URI, source IPs, recording).
+  - aid: plivo:plivo-cnam-api
+    name: Plivo CNAM Lookup and Branded Calling API
+    tags:
+      - CNAM
+      - Caller ID
+      - Branded Calling
+    properties:
+      - url: https://www.plivo.com/docs/cnam/api/
+        type: Documentation
+    description: >-
+      The Plivo CNAM and Branded Calling API manages caller-name lookup and branded outbound caller-display configurations on outbound voice calls.
 common:
   - type: Website
     url: https://www.plivo.com/
+  - type: Documentation
+    url: https://www.plivo.com/docs/
+  - type: API Reference
+    url: https://www.plivo.com/docs/sms/api/
+  - type: Getting Started
+    url: https://www.plivo.com/docs/getting-started/
+  - type: Authentication
+    url: https://www.plivo.com/docs/account/api/account/
+  - type: Pricing
+    url: https://www.plivo.com/pricing/
+  - type: SDKs
+    url: https://www.plivo.com/docs/sdks/
+  - type: Status
+    url: https://status.plivo.com/
+  - type: Sign Up
+    url: https://console.plivo.com/accounts/register/
+  - type: Login
+    url: https://console.plivo.com/
+  - type: GitHub Organization
+    url: https://github.com/plivo
+  - type: Node.js SDK
+    url: https://github.com/plivo/plivo-node
+  - type: Python SDK
+    url: https://github.com/plivo/plivo-python
+  - type: PHP SDK
+    url: https://github.com/plivo/plivo-php
+  - type: Ruby SDK
+    url: https://github.com/plivo/plivo-ruby
+  - type: Java SDK
+    url: https://github.com/plivo/plivo-java
+  - type: Go SDK
+    url: https://github.com/plivo/plivo-go
+  - type: .NET SDK
+    url: https://github.com/plivo/plivo-dotnet
+  - type: Browser SDK
+    url: https://www.plivo.com/docs/sdk/web/
+  - type: iOS SDK
+    url: https://www.plivo.com/docs/sdk/ios/
+  - type: Android SDK
+    url: https://www.plivo.com/docs/sdk/android/
+  - type: Blog
+    url: https://www.plivo.com/blog/
+  - type: Change Log
+    url: https://www.plivo.com/changelog/
+  - type: X (Twitter)
+    url: https://x.com/plivo
+  - type: YouTube
+    url: https://www.youtube.com/c/Plivo
   - type: Plans
     url: plans/plivo-plans-pricing.yml
   - type: RateLimits

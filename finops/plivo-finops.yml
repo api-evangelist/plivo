@@ -5,22 +5,24 @@ provider: Plivo
 providerId: plivo
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
-- Communications
-- CPaaS
-- Voice
-- SMS
-- Messaging
-- FinOps
-- Cost Management
-- FOCUS
-description: FOCUS-aligned FinOps placeholder for Plivo. Pipeline will replace with the provider's
-  real billing-model details once researched.
-notes: Initial scaffold — billing model has not yet been reconciled.
+  - Communications
+  - CPaaS
+  - Voice
+  - SMS
+  - Messaging
+  - FinOps
+  - Cost Management
+  - FOCUS
+description: >-
+  Plivo bills under a usage-based, post-paid model with optional prepaid balance top-ups. Charges accrue per outbound/inbound SMS segment, per voice minute (60-second billing increment), per phone-number rental (recurring), and per add-on (Verify, Lookup, MMS, WhatsApp, AI Voice Agent, CNAM). Enterprise customers move to committed-spend agreements starting at approximately $1,000/month.
+notes: >-
+  Reconciled against Plivo published pricing on 2026-05-08. Plivo provides invoice CSV/PDF and a Console usage report; there is no public FOCUS-formatted feed. The Pricing API can be used to construct a current rate card for downstream cost-allocation.
 sources:
-- https://www.plivo.com/
-- https://focus.finops.org/focus-specification/v1-3/
+  - https://www.plivo.com/pricing/
+  - https://www.plivo.com/docs/account/api/pricing/
+  - https://focus.finops.org/focus-specification/v1-3/
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
@@ -30,13 +32,16 @@ alignedWith:
 publisherName: Plivo
 serviceCategory: Communications
 billingModel:
-  pricingCategory: To Be Reconciled
+  pricingCategory: Usage-Based / Pay-As-You-Go
   billingFrequency: Monthly
+  billingTerm: Post-Paid (with optional prepaid balance)
   billingCurrency: USD
   chargeCategories:
-  - Usage
-  - Purchase
-  - Adjustment
+    - Usage
+    - Purchase
+    - Adjustment
+    - Tax
+  commitmentDiscount: Volume discounts and committed-spend Enterprise contracts (~$1,000/month minimum).
 focusColumns:
   ServiceName: Plivo
   ServiceCategory: Communications
@@ -45,23 +50,104 @@ focusColumns:
   InvoiceIssuerName: Plivo
   BillingCurrency: USD
   ChargeCategory: Usage
+  PricingCategory: Standard Pricing
 meters:
-- name: api_usage
-  description: Catch-all meter pending reconciliation against the provider's published metering.
-  unit: varies
-  aggregation: sum
-  dimensions:
-  - account
-  - resource
+  - name: sms_segments_outbound
+    description: Outbound SMS segments (pricing varies by destination country and number type).
+    unit: segment
+    aggregation: sum
+    dimensions:
+      - account
+      - subaccount
+      - country
+      - number_type
+  - name: sms_segments_inbound
+    description: Inbound SMS segments delivered to Plivo-hosted numbers.
+    unit: segment
+    aggregation: sum
+    dimensions:
+      - account
+      - subaccount
+      - country
+      - number_type
+  - name: mms_messages
+    description: MMS message events including media transfer fees.
+    unit: message
+    aggregation: sum
+    dimensions:
+      - account
+      - subaccount
+      - country
+  - name: voice_minutes_outbound
+    description: Outbound voice minutes (per-country rate, 60-second billing increment).
+    unit: minute
+    aggregation: sum
+    dimensions:
+      - account
+      - subaccount
+      - country
+      - call_type
+  - name: voice_minutes_inbound
+    description: Inbound voice minutes to Plivo-hosted numbers.
+    unit: minute
+    aggregation: sum
+    dimensions:
+      - account
+      - subaccount
+      - country
+      - call_type
+  - name: phone_number_rental
+    description: Monthly recurring rental for owned phone numbers (long codes, toll-free, short codes, mobile).
+    unit: number-month
+    aggregation: max
+    dimensions:
+      - account
+      - subaccount
+      - country
+      - number_type
+  - name: verify_attempts
+    description: Verification attempts initiated through the Plivo Verify API.
+    unit: attempt
+    aggregation: sum
+    dimensions:
+      - account
+      - channel
+      - country
+  - name: lookup_requests
+    description: Lookup API requests (HLR, carrier, line-type).
+    unit: request
+    aggregation: sum
+    dimensions:
+      - account
+      - country
+  - name: ai_voice_agent_minutes
+    description: AI Voice Agent minutes (separate metering for STT/TTS/LLM round-trips).
+    unit: minute
+    aggregation: sum
+    dimensions:
+      - account
+      - agent
+  - name: 10dlc_brand_campaign
+    description: Carrier 10DLC registration / vetting / monthly fees passed through.
+    unit: fee
+    aggregation: sum
+    dimensions:
+      - account
+      - brand
+      - campaign
 principles:
-- name: Visibility
-  description: Pull provider invoices or usage exports until a self-serve usage feed is documented.
-- name: Allocation
-  description: Tag invoice line items to consuming business units in your FinOps store.
-- name: Optimization
-  description: Levers depend on the provider's billing model; review at renewal once reconciled.
-- name: Accountability
-  description: Assign a contract owner to review billing against negotiated terms.
+  - name: Visibility
+    description: >-
+      Pull invoice CSV and the Console usage report regularly; for high-volume accounts, request scheduled usage exports. Use subaccount segregation to isolate cost centers from day one.
+  - name: Allocation
+    description: >-
+      Tag traffic by subaccount per business unit; use the Pricing API to convert raw usage into expected cost per dimension before invoice arrival.
+  - name: Optimization
+    description: >-
+      Move to a Powerpack to spread outbound MPS for better deliverability/cost; right-size phone-number inventory and release unused DIDs; promote chatty integrations to higher-vetted 10DLC brand scores; consider an Enterprise commit once monthly spend approaches $1,000.
+  - name: Accountability
+    description: >-
+      Assign per-subaccount owners; alert on month-to-date consumption versus forecast; gate test traffic to a separate subaccount.
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com

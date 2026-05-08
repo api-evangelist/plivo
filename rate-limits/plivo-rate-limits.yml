@@ -5,32 +5,76 @@ provider: Plivo
 providerId: plivo
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
-- Communications
-- CPaaS
-- Voice
-- SMS
-- Messaging
-- Rate Limiting
-- Quotas
-- Throttling
-description: Placeholder rate-limit artifact for Plivo. Replace with real limits once the pipeline
-  researches the provider's rate-limit documentation.
-notes: Initial scaffold — limits have not yet been reconciled against the provider's documentation.
+  - Communications
+  - CPaaS
+  - Voice
+  - SMS
+  - Messaging
+  - Rate Limiting
+  - Quotas
+  - Throttling
+description: >-
+  Plivo applies a default REST API rate limit of 300 requests per 5-second window per account. When the limit is exceeded, the API returns HTTP 429 (Too Many Requests). Outbound messaging additionally has carrier-imposed throughput caps (1 MPS per US long code, higher for Powerpacks, toll-free, and short codes), and outbound voice is throttled by the account's max-call-attempts setting. Higher REST limits and message throughput tiers can be negotiated for enterprise accounts.
+notes: >-
+  Reconciled against Plivo published account-API documentation. Messaging-throughput numbers are carrier-driven (10DLC, toll-free, short code, WhatsApp), not Plivo limits per se — verify the latest figures with The Campaign Registry / Plivo support before relying on them in code.
 sources:
-- https://www.plivo.com/
+  - https://www.plivo.com/docs/account/api/
+  - https://www.plivo.com/docs/messaging/concepts/sms-throughput/
+  - https://www.plivo.com/docs/voice/concepts/concurrent-calls/
 responseCodes:
   throttled: 429
+  serverError: 500
 limits:
-- name: Default
-  scope: account
-  metric: varies
-  limit: see provider documentation
-  notes: Pending reconciliation.
+  - name: REST API
+    scope: account
+    metric: requests
+    limit: 300
+    timeFrame: 5-seconds
+    notes: >-
+      Default Plivo REST API rate limit. Applies across the entire account (sum of all subaccounts unless separately limited).
+  - name: Outbound SMS — US 10DLC Long Code
+    scope: phone-number
+    metric: messages
+    limit: 1
+    timeFrame: second
+    notes: >-
+      Standard MPS (messages per second) per registered 10DLC long code. Higher MPS available based on campaign vetting / brand score.
+  - name: Outbound SMS — US Toll-Free
+    scope: phone-number
+    metric: messages
+    limit: 3
+    timeFrame: second
+    notes: >-
+      Default MPS per verified toll-free number. Carriers can authorize higher throughput post-verification.
+  - name: Outbound SMS — Powerpack
+    scope: powerpack
+    metric: messages
+    limit: -1
+    timeFrame: second
+    notes: >-
+      Powerpacks scale throughput by spreading traffic across the underlying number pool; aggregate MPS is sum of pool member MPS.
+  - name: Concurrent Calls
+    scope: account
+    metric: concurrent-calls
+    limit: 100
+    timeFrame: simultaneous
+    notes: >-
+      Default account-level cap on simultaneous voice calls (max_calls). Configurable upward for paid accounts.
+headers:
+  - name: Retry-After
+    description: Seconds the client should wait before re-issuing a throttled request.
 policies:
-- name: Backoff Strategy
-  description: Clients should implement exponential backoff with jitter and honor any Retry-After header.
+  - name: Backoff Strategy
+    description: >-
+      Implement exponential backoff with jitter on HTTP 429 responses; honor Retry-After when present.
+  - name: Carrier Compliance
+    description: >-
+      For US A2P SMS at scale, register brand and campaign via the 10DLC API to unlock the throughput tier matching your campaign's vetted score.
+  - name: Account Limits
+    description: >-
+      max_calls (concurrent-call ceiling) is set per account; raise via the Account API or by contacting Plivo support before scaling outbound voice campaigns.
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com
