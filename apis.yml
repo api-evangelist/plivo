@@ -1,0 +1,29 @@
+aid: plivo
+url: https://raw.githubusercontent.com/api-evangelist/plivo/refs/heads/main/apis.yml
+name: Plivo
+x-type: company
+description: >-
+  Plivo is a cloud communications platform offering voice and SMS APIs to global carriers. The Plivo API exposes calls, messages, numbers, applications, and verification flows.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Communications
+  - CPaaS
+  - Voice
+  - SMS
+  - Messaging
+created: '2026-05-08'
+modified: '2026-05-08'
+specificationVersion: '0.19'
+apis: []
+common:
+  - type: Website
+    url: https://www.plivo.com/
+  - type: Plans
+    url: plans/plivo-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/plivo-rate-limits.yml
+  - type: FinOps
+    url: finops/plivo-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
