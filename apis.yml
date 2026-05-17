@@ -1,7 +1,7 @@
 aid: plivo
 url: https://raw.githubusercontent.com/api-evangelist/plivo/refs/heads/main/apis.yml
 name: Plivo
-x-type: company
+kind: company
 description: >-
   Plivo is a global communications platform offering programmable Voice, Messaging (SMS/MMS/WhatsApp), SIP Trunking, Verify, and Lookup APIs, plus an AI Voice Agent platform. The HTTP API is available at https://api.plivo.com/v1/ with HTTP Basic Auth using Auth ID and Auth Token credentials.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
@@ -27,7 +27,7 @@ apis:
       - url: https://www.plivo.com/docs/account/api/account/
         type: Documentation
       - url: https://www.plivo.com/docs/account/api/
-        type: API Reference
+        type: APIReference
     description: >-
       The Plivo Account API exposes account-level details (auth ID, auth token, billing balance, address, account type, max-call configuration) and supports updating account properties.
   - aid: plivo:plivo-subaccount-api
@@ -73,7 +73,7 @@ apis:
       - url: https://www.plivo.com/docs/voice/api/call/
         type: Documentation
       - url: https://www.plivo.com/docs/voice/api/
-        type: API Reference
+        type: APIReference
     description: >-
       The Plivo Voice Call API initiates outbound calls, retrieves details for live and historical calls, and supports active-call control (transfer, record, play, speak, hangup, DTMF send) on in-progress calls.
   - aid: plivo:plivo-conference-api
@@ -152,7 +152,7 @@ apis:
       - url: https://www.plivo.com/docs/messaging/api/message/
         type: Documentation
       - url: https://www.plivo.com/docs/messaging/api/
-        type: API Reference
+        type: APIReference
     description: >-
       The Plivo Message API sends and receives SMS, MMS, and WhatsApp messages, retrieves delivery status reports, and lists historical messages.
   - aid: plivo:plivo-media-api
@@ -273,9 +273,9 @@ common:
     url: https://www.plivo.com/
   - type: Documentation
     url: https://www.plivo.com/docs/
-  - type: API Reference
+  - type: APIReference
     url: https://www.plivo.com/docs/sms/api/
-  - type: Getting Started
+  - type: GettingStarted
     url: https://www.plivo.com/docs/getting-started/
   - type: Authentication
     url: https://www.plivo.com/docs/account/api/account/
@@ -283,13 +283,13 @@ common:
     url: https://www.plivo.com/pricing/
   - type: SDKs
     url: https://www.plivo.com/docs/sdks/
-  - type: Status
+  - type: StatusPage
     url: https://status.plivo.com/
-  - type: Sign Up
+  - type: SignUp
     url: https://console.plivo.com/accounts/register/
   - type: Login
     url: https://console.plivo.com/
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/plivo
   - type: Node.js SDK
     url: https://github.com/plivo/plivo-node
@@ -313,7 +313,7 @@ common:
     url: https://www.plivo.com/docs/sdk/android/
   - type: Blog
     url: https://www.plivo.com/blog/
-  - type: Change Log
+  - type: ChangeLog
     url: https://www.plivo.com/changelog/
   - type: X (Twitter)
     url: https://x.com/plivo
