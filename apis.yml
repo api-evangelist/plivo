@@ -15,7 +15,7 @@ tags:
   - SIP Trunking
   - Verify
 created: '2026-05-08'
-modified: '2026-05-08'
+modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
   - aid: plivo:plivo-account-api
@@ -325,6 +325,9 @@ common:
     url: rate-limits/plivo-rate-limits.yml
   - type: FinOps
     url: finops/plivo-finops.yml
+  - name: MCP Server
+    url: https://github.com/plivo/mcp
+    type: MCPServer
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
