@@ -15,7 +15,7 @@ tags:
   - SIP Trunking
   - Verify
 created: '2026-05-08'
-modified: '2026-05-19'
+modified: '2026-05-29'
 specificationVersion: '0.19'
 apis:
   - aid: plivo:plivo-account-api
@@ -128,8 +128,14 @@ apis:
     properties:
       - url: https://www.plivo.com/docs/voice/api/audiostream/
         type: Documentation
+      - url: https://www.plivo.com/docs/voice/xml/audiostream
+        type: Documentation
+      - url: https://www.plivo.com/docs/voice-agents/audio-streaming/concepts/stream-event-protocol
+        type: Documentation
+      - url: asyncapi/plivo-asyncapi.yml
+        type: AsyncAPI
     description: >-
-      The Plivo Audio Stream API attaches a real-time WebSocket audio stream to a live call, enabling AI voice agents, real-time transcription, and analytics.
+      The Plivo Audio Stream API attaches a real-time WebSocket audio stream to a live call, enabling AI voice agents, real-time transcription, and analytics. Plivo opens a WSS connection to a customer-operated endpoint declared in the `<Stream>` XML element and exchanges JSON events (start, media, dtmf, playedStream, clearedAudio in; playAudio, checkpoint, clearAudio, sendDTMF out) following the documented Stream Event Protocol.
   - aid: plivo:plivo-verified-caller-id-api
     name: Plivo Verified Caller ID API
     tags:

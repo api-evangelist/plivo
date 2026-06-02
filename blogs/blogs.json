@@ -2,12 +2,17 @@
   "repo": "plivo",
   "feeds": [
     {
-      "source": "https://www.plivo.com/blog/",
+      "source": "https://www.plivo.com/rss.xml",
       "feed_url": "https://www.plivo.com/rss.xml",
-      "title": "AI Agents to Automate Your Customer Engagement",
-      "saved": 25
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://www.plivo.com/docs/sdk/android/",
+      "error": "HTTPError"
     }
   ],
-  "fetched": "2026-05-17T20:20:35Z",
-  "post_count": 50
+  "fetched": "2026-06-01T23:35:02Z",
+  "post_count": 72
 }

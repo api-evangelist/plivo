@@ -1,0 +1,539 @@
+asyncapi: 3.0.0
+info:
+  title: Plivo Audio Streaming WebSocket API
+  version: '1.0.0'
+  description: >-
+    The Plivo Audio Streaming API delivers near real-time raw audio from active
+    Plivo voice calls to a customer-operated WebSocket server, and (when
+    bidirectional streaming is enabled) accepts audio and control events from
+    the server back into the live call. The customer-operated WebSocket
+    endpoint is declared in the Plivo XML response that controls the call,
+    using the `<Stream>` element. Plivo opens a WSS connection to that endpoint
+    and exchanges JSON text frames following the Plivo Audio Streaming event
+    protocol.
+
+
+    Audio formats supported on the wire: `audio/x-l16;rate=8000`,
+    `audio/x-l16;rate=16000`, and `audio/x-mulaw;rate=8000`. Audio payloads in
+    each direction are base64-encoded.
+
+
+    Stream lifecycle notifications (stream stopped, stream timeout, stream
+    failed) are delivered by Plivo over a separate HTTP status callback to the
+    `statusCallbackUrl` configured on the `<Stream>` element and are not part
+    of the WebSocket event protocol.
+  contact:
+    name: Plivo
+    url: https://www.plivo.com/docs/
+  license:
+    name: Proprietary
+    url: https://www.plivo.com/legal/
+  externalDocs:
+    description: Plivo Audio Streaming - Stream Event Protocol
+    url: https://www.plivo.com/docs/voice-agents/audio-streaming/concepts/stream-event-protocol
+
+defaultContentType: application/json
+
+servers:
+  customer-websocket:
+    host: 'yourserver.example.com'
+    pathname: /audiostream
+    protocol: wss
+    description: >-
+      Customer-operated WebSocket Secure (WSS) endpoint declared inside the
+      Plivo `<Stream>` XML element. Plivo connects from its voice
+      infrastructure to this URL when the call reaches the `<Stream>`
+      instruction. The host and path shown here are illustrative — the actual
+      value is whatever the customer publishes in the XML.
+    externalDocs:
+      description: The Stream XML element
+      url: https://www.plivo.com/docs/voice/xml/audiostream
+
+channels:
+  audioStream:
+    address: /
+    description: >-
+      Single bidirectional JSON-over-WebSocket channel established when Plivo
+      connects to the customer's WSS endpoint declared in `<Stream>`. All
+      events listed below flow over this same connection.
+    messages:
+      start:
+        $ref: '#/components/messages/StartEvent'
+      media:
+        $ref: '#/components/messages/MediaEvent'
+      dtmf:
+        $ref: '#/components/messages/DtmfEvent'
+      playedStream:
+        $ref: '#/components/messages/PlayedStreamEvent'
+      clearedAudio:
+        $ref: '#/components/messages/ClearedAudioEvent'
+      playAudio:
+        $ref: '#/components/messages/PlayAudioEvent'
+      checkpoint:
+        $ref: '#/components/messages/CheckpointEvent'
+      clearAudio:
+        $ref: '#/components/messages/ClearAudioEvent'
+      sendDTMF:
+        $ref: '#/components/messages/SendDTMFEvent'
+
+operations:
+  receiveStart:
+    action: receive
+    channel:
+      $ref: '#/channels/audioStream'
+    summary: Stream started
+    description: >-
+      Sent by Plivo to the customer WebSocket server when the WSS connection
+      is established and audio streaming for the call begins. Carries call,
+      stream, account, track, and media-format metadata.
+    messages:
+      - $ref: '#/channels/audioStream/messages/start'
+  receiveMedia:
+    action: receive
+    channel:
+      $ref: '#/channels/audioStream'
+    summary: Inbound audio chunk
+    description: >-
+      Sent by Plivo to deliver a chunk of base64-encoded raw audio (~20ms per
+      chunk) from the configured tracks of the live call.
+    messages:
+      - $ref: '#/channels/audioStream/messages/media'
+  receiveDtmf:
+    action: receive
+    channel:
+      $ref: '#/channels/audioStream'
+    summary: Caller DTMF key press
+    description: >-
+      Sent by Plivo when a DTMF digit is detected on the live call.
+    messages:
+      - $ref: '#/channels/audioStream/messages/dtmf'
+  receivePlayedStream:
+    action: receive
+    channel:
+      $ref: '#/channels/audioStream'
+    summary: Checkpoint reached
+    description: >-
+      Sent by Plivo after audio queued by a prior `playAudio` event has played
+      through the checkpoint identified by `name`. Allows the server to
+      synchronize follow-up actions with playback completion.
+    messages:
+      - $ref: '#/channels/audioStream/messages/playedStream'
+  receiveClearedAudio:
+    action: receive
+    channel:
+      $ref: '#/channels/audioStream'
+    summary: Buffered audio cleared
+    description: >-
+      Sent by Plivo to acknowledge that buffered playback audio has been
+      cleared in response to a server-sent `clearAudio` event.
+    messages:
+      - $ref: '#/channels/audioStream/messages/clearedAudio'
+  sendPlayAudio:
+    action: send
+    channel:
+      $ref: '#/channels/audioStream'
+    summary: Play audio into the call
+    description: >-
+      Sent by the server (only when `bidirectional="true"` on the `<Stream>`
+      XML) to inject base64-encoded audio into the live call. `contentType`
+      and `sampleRate` must match the stream's negotiated media format.
+    messages:
+      - $ref: '#/channels/audioStream/messages/playAudio'
+  sendCheckpoint:
+    action: send
+    channel:
+      $ref: '#/channels/audioStream'
+    summary: Mark a playback checkpoint
+    description: >-
+      Sent by the server to label a position in the outbound playback queue.
+      Plivo responds with a `playedStream` event when audio queued before the
+      checkpoint has finished playing.
+    messages:
+      - $ref: '#/channels/audioStream/messages/checkpoint'
+  sendClearAudio:
+    action: send
+    channel:
+      $ref: '#/channels/audioStream'
+    summary: Clear buffered playback audio
+    description: >-
+      Sent by the server to interrupt and discard any buffered playback audio
+      previously sent via `playAudio`. Plivo responds with `clearedAudio`.
+    messages:
+      - $ref: '#/channels/audioStream/messages/clearAudio'
+  sendDTMF:
+    action: send
+    channel:
+      $ref: '#/channels/audioStream'
+    summary: Send DTMF digits into the call
+    description: >-
+      Sent by the server (when bidirectional streaming is active) to play DTMF
+      digits into the live call.
+    messages:
+      - $ref: '#/channels/audioStream/messages/sendDTMF'
+
+components:
+  messages:
+    StartEvent:
+      name: start
+      title: Stream Start
+      summary: Initial stream metadata sent by Plivo on connection.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/StartPayload'
+    MediaEvent:
+      name: media
+      title: Media Chunk
+      summary: Base64-encoded raw audio chunk from the live call.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/MediaPayload'
+    DtmfEvent:
+      name: dtmf
+      title: DTMF Digit
+      summary: A DTMF digit detected on the live call.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/DtmfPayload'
+    PlayedStreamEvent:
+      name: playedStream
+      title: Checkpoint Played
+      summary: Acknowledgement that playback has reached a named checkpoint.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/PlayedStreamPayload'
+    ClearedAudioEvent:
+      name: clearedAudio
+      title: Buffered Audio Cleared
+      summary: Acknowledgement that buffered playback audio was cleared.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/ClearedAudioPayload'
+    PlayAudioEvent:
+      name: playAudio
+      title: Play Audio
+      summary: Server-to-Plivo audio injection during bidirectional streaming.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/PlayAudioPayload'
+    CheckpointEvent:
+      name: checkpoint
+      title: Checkpoint
+      summary: Server-to-Plivo playback checkpoint marker.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/CheckpointPayload'
+    ClearAudioEvent:
+      name: clearAudio
+      title: Clear Audio
+      summary: Server-to-Plivo request to discard buffered playback audio.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/ClearAudioPayload'
+    SendDTMFEvent:
+      name: sendDTMF
+      title: Send DTMF
+      summary: Server-to-Plivo request to play DTMF digits into the call.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/SendDTMFPayload'
+
+  schemas:
+    StartPayload:
+      type: object
+      required:
+        - event
+        - sequenceNumber
+        - start
+      properties:
+        event:
+          type: string
+          const: start
+          description: Event discriminator.
+        sequenceNumber:
+          type: integer
+          minimum: 1
+          description: Monotonically increasing per-stream sequence number.
+        start:
+          type: object
+          required:
+            - callId
+            - streamId
+            - accountId
+            - tracks
+            - mediaFormat
+          properties:
+            callId:
+              type: string
+              format: uuid
+              description: Plivo call UUID for the live call being streamed.
+            streamId:
+              type: string
+              format: uuid
+              description: Unique Plivo identifier for this audio stream.
+            accountId:
+              type: string
+              description: Plivo account (Auth ID) under which the call is running.
+            tracks:
+              type: array
+              description: >-
+                Audio tracks included in this stream, as configured by the
+                `audioTrack` attribute on the `<Stream>` XML element.
+              items:
+                type: string
+                enum:
+                  - inbound
+                  - outbound
+            mediaFormat:
+              type: object
+              required:
+                - encoding
+                - sampleRate
+              properties:
+                encoding:
+                  type: string
+                  description: Audio encoding MIME type used on the wire.
+                  enum:
+                    - audio/x-l16
+                    - audio/x-mulaw
+                sampleRate:
+                  type: integer
+                  description: Sample rate in Hertz.
+                  enum:
+                    - 8000
+                    - 16000
+        extra_headers:
+          type: string
+          description: >-
+            Custom key-value pairs forwarded from the `extraHeaders` attribute
+            of the originating `<Stream>` XML element.
+
+    MediaPayload:
+      type: object
+      required:
+        - event
+        - sequenceNumber
+        - streamId
+        - media
+      properties:
+        event:
+          type: string
+          const: media
+        sequenceNumber:
+          type: integer
+          description: Per-stream sequence number.
+        streamId:
+          type: string
+          format: uuid
+          description: Plivo stream identifier.
+        media:
+          type: object
+          required:
+            - track
+            - chunk
+            - timestamp
+            - payload
+          properties:
+            track:
+              type: string
+              description: The audio track this chunk belongs to.
+              enum:
+                - inbound
+                - outbound
+            chunk:
+              type: integer
+              description: Sequence number of this chunk within the stream.
+            timestamp:
+              type: string
+              description: Unix epoch timestamp in milliseconds, as a string.
+            payload:
+              type: string
+              format: byte
+              description: >-
+                Base64-encoded raw audio payload (approximately 20ms of audio
+                per chunk).
+        extra_headers:
+          type: string
+          description: Custom headers forwarded from the originating `<Stream>` XML.
+
+    DtmfPayload:
+      type: object
+      required:
+        - event
+        - sequenceNumber
+        - streamId
+        - dtmf
+      properties:
+        event:
+          type: string
+          const: dtmf
+        sequenceNumber:
+          type: integer
+        streamId:
+          type: string
+          format: uuid
+        dtmf:
+          type: object
+          required:
+            - track
+            - digit
+            - timestamp
+          properties:
+            track:
+              type: string
+              enum:
+                - inbound
+                - outbound
+            digit:
+              type: string
+              description: A single DTMF digit.
+              enum:
+                - '0'
+                - '1'
+                - '2'
+                - '3'
+                - '4'
+                - '5'
+                - '6'
+                - '7'
+                - '8'
+                - '9'
+                - '*'
+                - '#'
+                - 'A'
+                - 'B'
+                - 'C'
+                - 'D'
+            timestamp:
+              type: string
+              description: Unix epoch timestamp in milliseconds, as a string.
+        extra_headers:
+          type: string
+
+    PlayedStreamPayload:
+      type: object
+      required:
+        - event
+        - sequenceNumber
+        - streamId
+        - name
+      properties:
+        event:
+          type: string
+          const: playedStream
+        sequenceNumber:
+          type: integer
+        streamId:
+          type: string
+          format: uuid
+        name:
+          type: string
+          description: >-
+            Identifier of the checkpoint previously declared by the server
+            with a `checkpoint` event. Emitted by Plivo when playback has
+            advanced through that checkpoint.
+
+    ClearedAudioPayload:
+      type: object
+      required:
+        - event
+        - sequenceNumber
+        - streamId
+      properties:
+        event:
+          type: string
+          const: clearedAudio
+        sequenceNumber:
+          type: integer
+        streamId:
+          type: string
+          format: uuid
+
+    PlayAudioPayload:
+      type: object
+      required:
+        - event
+        - media
+      properties:
+        event:
+          type: string
+          const: playAudio
+        media:
+          type: object
+          required:
+            - contentType
+            - sampleRate
+            - payload
+          properties:
+            contentType:
+              type: string
+              description: >-
+                MIME type of the supplied audio. Must match the stream's
+                negotiated encoding.
+              enum:
+                - audio/x-l16
+                - audio/x-mulaw
+            sampleRate:
+              description: >-
+                Sample rate of the supplied audio in Hertz. Must match the
+                stream's negotiated sample rate. Plivo accepts this field as
+                either a number or a numeric string.
+              oneOf:
+                - type: integer
+                  enum:
+                    - 8000
+                    - 16000
+                - type: string
+                  enum:
+                    - '8000'
+                    - '16000'
+            payload:
+              type: string
+              format: byte
+              description: Base64-encoded raw audio payload to inject into the call.
+
+    CheckpointPayload:
+      type: object
+      required:
+        - event
+        - streamId
+        - name
+      properties:
+        event:
+          type: string
+          const: checkpoint
+        streamId:
+          type: string
+          format: uuid
+        name:
+          type: string
+          description: >-
+            Unique server-chosen checkpoint identifier. Plivo will echo this
+            back in a `playedStream` event once buffered playback has reached
+            this point.
+
+    ClearAudioPayload:
+      type: object
+      required:
+        - event
+        - streamId
+      properties:
+        event:
+          type: string
+          const: clearAudio
+        streamId:
+          type: string
+          format: uuid
+
+    SendDTMFPayload:
+      type: object
+      required:
+        - event
+        - dtmf
+      properties:
+        event:
+          type: string
+          const: sendDTMF
+        dtmf:
+          type: string
+          description: One or more DTMF digits to play into the live call.
+          pattern: '^[0-9A-D*#]+$'
