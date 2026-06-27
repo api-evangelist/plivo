@@ -293,7 +293,7 @@ common:
     url: https://www.plivo.com/docs/sdks/
   - type: StatusPage
     url: https://status.plivo.com/
-  - type: SignUp
+  - type: Signup
     url: https://console.plivo.com/accounts/register/
   - type: Login
     url: https://console.plivo.com/

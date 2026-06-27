@@ -5,7 +5,7 @@
       "source": "https://www.plivo.com/rss.xml",
       "feed_url": "https://www.plivo.com/rss.xml",
       "title": "",
-      "saved": 4,
+      "saved": 0,
       "method": "feed"
     },
     {
@@ -13,6 +13,6 @@
       "error": "HTTPError"
     }
   ],
-  "post_count": 76,
-  "fetched": "2026-06-14T20:42:17Z"
+  "post_count": 80,
+  "fetched": "2026-06-27T12:03:07Z"
 }
