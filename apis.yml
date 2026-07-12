@@ -275,6 +275,12 @@ apis:
     description: >-
       The Plivo CNAM and Branded Calling API manages caller-name lookup and branded outbound caller-display configurations on outbound voice calls.
 common:
+  - type: TrustCenter
+    url: security/plivo-trust-center.yml
+  - type: DomainSecurity
+    url: security/plivo-domain-security.yml
+  - type: Authentication
+    url: authentication/plivo-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/plivo-inc
   - type: Website
