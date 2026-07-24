@@ -1,0 +1,124 @@
+openapi: 3.1.0
+info:
+  title: Plivo Account API
+  version: v1
+  description: 'Plivo''s HTTP API for programmable voice, messaging (SMS/MMS/WhatsApp),
+
+    SIP trunking, account, and number management. This specification
+
+    captures a representative subset of the Account and Message resources
+
+    as documented at https://www.plivo.com/docs/. Authentication uses
+
+    HTTP Basic with your Plivo Auth ID (username) and Auth Token (password).
+
+    '
+  contact:
+    name: Plivo Developer Documentation
+    url: https://www.plivo.com/docs/
+servers:
+- url: https://api.plivo.com/v1
+  description: Plivo production API
+security:
+- basicAuth: []
+tags:
+- name: Account
+  description: Account-level configuration and details.
+paths:
+  /Account/{auth_id}/:
+    parameters:
+    - $ref: '#/components/parameters/AuthId'
+    get:
+      tags:
+      - Account
+      operationId: getAccount
+      summary: Retrieve account details
+      description: Returns the details of the Plivo account identified by auth_id.
+      responses:
+        '200':
+          description: Account details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+    post:
+      tags:
+      - Account
+      operationId: updateAccount
+      summary: Update account details
+      description: Updates one or more mutable properties on the account. Properties not supplied remain unchanged.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountUpdate'
+      responses:
+        '202':
+          description: Update accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiAck'
+components:
+  schemas:
+    AccountUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        address:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        timezone:
+          type: string
+    ApiAck:
+      type: object
+      properties:
+        api_id:
+          type: string
+        message:
+          type: string
+    Account:
+      type: object
+      properties:
+        account_type:
+          type: string
+        address:
+          type: string
+        api_id:
+          type: string
+        auth_id:
+          type: string
+        auto_recharge:
+          type: boolean
+        billing_mode:
+          type: string
+        cash_credits:
+          type: string
+        city:
+          type: string
+        name:
+          type: string
+        resource_uri:
+          type: string
+        state:
+          type: string
+        timezone:
+          type: string
+  parameters:
+    AuthId:
+      in: path
+      name: auth_id
+      required: true
+      schema:
+        type: string
+      description: Plivo account Auth ID.
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic with Plivo Auth ID (username) and Auth Token (password).
