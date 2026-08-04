@@ -1,0 +1,16 @@
+{
+  "provider": "plivo",
+  "sources": [
+    "plivo-account-api-openapi.yml",
+    "plivo-message-api-openapi.yml"
+  ],
+  "outputs": [
+    "plivo-account-api-openapi.yml",
+    "plivo-message-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

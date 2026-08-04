@@ -1,0 +1,322 @@
+openapi: 3.1.0
+info:
+  title: Plivo API
+  version: v1
+  description: |
+    Plivo's HTTP API for programmable voice, messaging (SMS/MMS/WhatsApp),
+    SIP trunking, account, and number management. This specification
+    captures a representative subset of the Account and Message resources
+    as documented at https://www.plivo.com/docs/. Authentication uses
+    HTTP Basic with your Plivo Auth ID (username) and Auth Token (password).
+  contact:
+    name: Plivo Developer Documentation
+    url: https://www.plivo.com/docs/
+servers:
+  - url: https://api.plivo.com/v1
+    description: Plivo production API
+security:
+  - basicAuth: []
+tags:
+  - name: Account
+    description: Account-level configuration and details.
+  - name: Message
+    description: Send and retrieve SMS, MMS, and WhatsApp messages.
+paths:
+  /Account/{auth_id}/:
+    parameters:
+      - $ref: '#/components/parameters/AuthId'
+    get:
+      tags: [Account]
+      operationId: getAccount
+      summary: Retrieve account details
+      description: Returns the details of the Plivo account identified by auth_id.
+      responses:
+        '200':
+          description: Account details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+    post:
+      tags: [Account]
+      operationId: updateAccount
+      summary: Update account details
+      description: Updates one or more mutable properties on the account. Properties not supplied remain unchanged.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountUpdate'
+      responses:
+        '202':
+          description: Update accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiAck'
+  /Account/{auth_id}/Message/:
+    parameters:
+      - $ref: '#/components/parameters/AuthId'
+    get:
+      tags: [Message]
+      operationId: listMessages
+      summary: List messages
+      description: Retrieve a paginated list of message records, optionally filtered by direction, type, or state.
+      parameters:
+        - in: query
+          name: message_direction
+          schema:
+            type: string
+            enum: [inbound, outbound]
+        - in: query
+          name: message_state
+          schema:
+            type: string
+        - in: query
+          name: message_type
+          schema:
+            type: string
+            enum: [sms, mms, whatsapp]
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 20
+            default: 20
+        - in: query
+          name: offset
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+      responses:
+        '200':
+          description: List of messages
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageList'
+    post:
+      tags: [Message]
+      operationId: sendMessage
+      summary: Send a message
+      description: Send an SMS, MMS, or WhatsApp message.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MessageCreate'
+      responses:
+        '202':
+          description: Message accepted for delivery
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageCreateResponse'
+  /Account/{auth_id}/Message/{message_uuid}/:
+    parameters:
+      - $ref: '#/components/parameters/AuthId'
+      - in: path
+        name: message_uuid
+        required: true
+        schema:
+          type: string
+    get:
+      tags: [Message]
+      operationId: getMessage
+      summary: Retrieve a message
+      description: Fetch details of a single message by its UUID.
+      responses:
+        '200':
+          description: Message details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+  /Account/{auth_id}/Message/{message_uuid}/Media/:
+    parameters:
+      - $ref: '#/components/parameters/AuthId'
+      - in: path
+        name: message_uuid
+        required: true
+        schema:
+          type: string
+    get:
+      tags: [Message]
+      operationId: listMessageMedia
+      summary: List MMS media
+      description: List media attachments associated with an MMS message.
+      responses:
+        '200':
+          description: List of media records
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  api_id:
+                    type: string
+                  media:
+                    type: array
+                    items:
+                      type: object
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic with Plivo Auth ID (username) and Auth Token (password).
+  parameters:
+    AuthId:
+      in: path
+      name: auth_id
+      required: true
+      schema:
+        type: string
+      description: Plivo account Auth ID.
+  schemas:
+    Account:
+      type: object
+      properties:
+        account_type:
+          type: string
+        address:
+          type: string
+        api_id:
+          type: string
+        auth_id:
+          type: string
+        auto_recharge:
+          type: boolean
+        billing_mode:
+          type: string
+        cash_credits:
+          type: string
+        city:
+          type: string
+        name:
+          type: string
+        resource_uri:
+          type: string
+        state:
+          type: string
+        timezone:
+          type: string
+    AccountUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        address:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        timezone:
+          type: string
+    ApiAck:
+      type: object
+      properties:
+        api_id:
+          type: string
+        message:
+          type: string
+    MessageCreate:
+      type: object
+      required: [src, dst]
+      properties:
+        src:
+          type: string
+          description: Sender ID or phone number (E.164).
+        dst:
+          type: string
+          description: Destination phone number in E.164 format. Multiple recipients can be separated by '<'.
+        text:
+          type: string
+        type:
+          type: string
+          enum: [sms, mms, whatsapp]
+          default: sms
+        media_urls:
+          type: array
+          items:
+            type: string
+            format: uri
+        url:
+          type: string
+          format: uri
+          description: Callback URL for delivery status.
+        method:
+          type: string
+          enum: [GET, POST]
+        dlt_entity_id:
+          type: string
+        dlt_template_id:
+          type: string
+    MessageCreateResponse:
+      type: object
+      properties:
+        api_id:
+          type: string
+        message:
+          type: string
+        message_uuid:
+          type: array
+          items:
+            type: string
+    Message:
+      type: object
+      properties:
+        api_id:
+          type: string
+        message_uuid:
+          type: string
+        from_number:
+          type: string
+        to_number:
+          type: string
+        message_state:
+          type: string
+        message_type:
+          type: string
+        message_direction:
+          type: string
+        total_amount:
+          type: string
+        total_rate:
+          type: string
+        units:
+          type: integer
+        message_time:
+          type: string
+          format: date-time
+        resource_uri:
+          type: string
+    MessageList:
+      type: object
+      properties:
+        api_id:
+          type: string
+        meta:
+          type: object
+          properties:
+            limit:
+              type: integer
+            offset:
+              type: integer
+            next:
+              type: string
+              nullable: true
+            previous:
+              type: string
+              nullable: true
+            total_count:
+              type: integer
+        objects:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
