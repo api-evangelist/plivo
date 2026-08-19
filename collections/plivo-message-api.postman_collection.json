@@ -1,0 +1,547 @@
+{
+  "item": [
+    {
+      "id": "cc66aee2-2a27-4bfb-9737-0a0188a2d484",
+      "name": "Message",
+      "description": {
+        "content": "Send and retrieve SMS, MMS, and WhatsApp messages.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a6c165d6-b013-4512-9e5b-829263966a6b",
+          "name": "List messages",
+          "request": {
+            "name": "List messages",
+            "description": {
+              "content": "Retrieve a paginated list of message records, optionally filtered by direction, type, or state.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Account",
+                ":auth_id",
+                "Message",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "message_direction",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "message_state",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "message_type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "auth_id",
+                  "description": "(Required) Plivo account Auth ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "460b0b04-da9d-4c9d-9978-9543e3ad4024",
+              "name": "List of messages",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Account",
+                    ":auth_id",
+                    "Message",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "message_direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "message_state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "message_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "auth_id",
+                      "description": "(Required) Plivo account Auth ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_id\": \"string\",\n  \"meta\": {\n    \"limit\": 8203,\n    \"offset\": 7253,\n    \"next\": \"string\",\n    \"previous\": \"string\",\n    \"total_count\": 3649\n  },\n  \"objects\": [\n    {\n      \"api_id\": \"string\",\n      \"message_uuid\": \"string\",\n      \"from_number\": \"string\",\n      \"to_number\": \"string\",\n      \"message_state\": \"string\",\n      \"message_type\": \"string\",\n      \"message_direction\": \"string\",\n      \"total_amount\": \"string\",\n      \"total_rate\": \"string\",\n      \"units\": 8397,\n      \"message_time\": \"1980-04-26T01:11:54.990Z\",\n      \"resource_uri\": \"string\"\n    },\n    {\n      \"api_id\": \"string\",\n      \"message_uuid\": \"string\",\n      \"from_number\": \"string\",\n      \"to_number\": \"string\",\n      \"message_state\": \"string\",\n      \"message_type\": \"string\",\n      \"message_direction\": \"string\",\n      \"total_amount\": \"string\",\n      \"total_rate\": \"string\",\n      \"units\": 8854,\n      \"message_time\": \"1973-10-03T21:19:34.795Z\",\n      \"resource_uri\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4651f061-f41b-4336-8a70-326fd6cd0abd",
+          "name": "Send a message",
+          "request": {
+            "name": "Send a message",
+            "description": {
+              "content": "Send an SMS, MMS, or WhatsApp message.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Account",
+                ":auth_id",
+                "Message",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "auth_id",
+                  "description": "(Required) Plivo account Auth ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"src\": \"<string>\",\n  \"dst\": \"<string>\",\n  \"text\": \"<string>\",\n  \"type\": \"sms\",\n  \"media_urls\": [\n    \"<uri>\",\n    \"<uri>\"\n  ],\n  \"url\": \"<uri>\",\n  \"method\": \"<string>\",\n  \"dlt_entity_id\": \"<string>\",\n  \"dlt_template_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1737125b-6bf3-4e14-8337-0a73bb33cabb",
+              "name": "Message accepted for delivery",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Account",
+                    ":auth_id",
+                    "Message",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "auth_id",
+                      "description": "(Required) Plivo account Auth ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"src\": \"<string>\",\n  \"dst\": \"<string>\",\n  \"text\": \"<string>\",\n  \"type\": \"sms\",\n  \"media_urls\": [\n    \"<uri>\",\n    \"<uri>\"\n  ],\n  \"url\": \"<uri>\",\n  \"method\": \"<string>\",\n  \"dlt_entity_id\": \"<string>\",\n  \"dlt_template_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_id\": \"string\",\n  \"message\": \"string\",\n  \"message_uuid\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d0d21592-ce68-4bbf-ade7-440e49623b46",
+          "name": "Retrieve a message",
+          "request": {
+            "name": "Retrieve a message",
+            "description": {
+              "content": "Fetch details of a single message by its UUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Account",
+                ":auth_id",
+                "Message",
+                ":message_uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "auth_id",
+                  "description": "(Required) Plivo account Auth ID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "message_uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "32375b39-769c-44a2-9f41-a305adad1ce8",
+              "name": "Message details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Account",
+                    ":auth_id",
+                    "Message",
+                    ":message_uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "auth_id",
+                      "description": "(Required) Plivo account Auth ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "message_uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_id\": \"string\",\n  \"message_uuid\": \"string\",\n  \"from_number\": \"string\",\n  \"to_number\": \"string\",\n  \"message_state\": \"string\",\n  \"message_type\": \"string\",\n  \"message_direction\": \"string\",\n  \"total_amount\": \"string\",\n  \"total_rate\": \"string\",\n  \"units\": 1101,\n  \"message_time\": \"1993-01-08T08:19:45.056Z\",\n  \"resource_uri\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3e5ccd59-2c8c-48e4-9649-660e3bb37221",
+          "name": "List MMS media",
+          "request": {
+            "name": "List MMS media",
+            "description": {
+              "content": "List media attachments associated with an MMS message.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Account",
+                ":auth_id",
+                "Message",
+                ":message_uuid",
+                "Media",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "auth_id",
+                  "description": "(Required) Plivo account Auth ID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "message_uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2d6c6803-0401-4682-a35c-cd5a4153f734",
+              "name": "List of media records",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Account",
+                    ":auth_id",
+                    "Message",
+                    ":message_uuid",
+                    "Media",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "auth_id",
+                      "description": "(Required) Plivo account Auth ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "message_uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.plivo.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b7c8a1f1-5887-42b2-a7dc-3abb09d1321a",
+    "name": "Plivo Account Message API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Plivo's HTTP API for programmable voice, messaging (SMS/MMS/WhatsApp),\nSIP trunking, account, and number management. This specification\ncaptures a representative subset of the Account and Message resources\nas documented at https://www.plivo.com/docs/. Authentication uses\nHTTP Basic with your Plivo Auth ID (username) and Auth Token (password).\n\n\nContact Support:\n Name: Plivo Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}

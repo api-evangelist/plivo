@@ -1,0 +1,262 @@
+{
+  "item": [
+    {
+      "id": "e027bb20-584c-4ac9-ae72-5778b589e63c",
+      "name": "Account",
+      "description": {
+        "content": "Account-level configuration and details.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "af971bb3-a407-4c4d-a82c-2dc35a429c5a",
+          "name": "Retrieve account details",
+          "request": {
+            "name": "Retrieve account details",
+            "description": {
+              "content": "Returns the details of the Plivo account identified by auth_id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Account",
+                ":auth_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "auth_id",
+                  "description": "(Required) Plivo account Auth ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0f6f3e65-15e7-48f8-abcd-927749da8b60",
+              "name": "Account details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Account",
+                    ":auth_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "auth_id",
+                      "description": "(Required) Plivo account Auth ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"account_type\": \"string\",\n  \"address\": \"string\",\n  \"api_id\": \"string\",\n  \"auth_id\": \"string\",\n  \"auto_recharge\": true,\n  \"billing_mode\": \"string\",\n  \"cash_credits\": \"string\",\n  \"city\": \"string\",\n  \"name\": \"string\",\n  \"resource_uri\": \"string\",\n  \"state\": \"string\",\n  \"timezone\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "74ca0178-d39a-4454-9d80-c05aee199c64",
+          "name": "Update account details",
+          "request": {
+            "name": "Update account details",
+            "description": {
+              "content": "Updates one or more mutable properties on the account. Properties not supplied remain unchanged.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Account",
+                ":auth_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "auth_id",
+                  "description": "(Required) Plivo account Auth ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"timezone\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "854fbaf9-9509-48ea-a617-709bc49bb59a",
+              "name": "Update accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Account",
+                    ":auth_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "auth_id",
+                      "description": "(Required) Plivo account Auth ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"timezone\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_id\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.plivo.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a10452b5-a36f-4e43-aed1-02e0a967ca86",
+    "name": "Plivo Account API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Plivo's HTTP API for programmable voice, messaging (SMS/MMS/WhatsApp),\nSIP trunking, account, and number management. This specification\ncaptures a representative subset of the Account and Message resources\nas documented at https://www.plivo.com/docs/. Authentication uses\nHTTP Basic with your Plivo Auth ID (username) and Auth Token (password).\n\n\nContact Support:\n Name: Plivo Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Plivo Account Message API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Message",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plivo.com/v1/Account/:auth_id/Message/",
+            "params": [
+              {
+                "name": "auth_id",
+                "value": "",
+                "type": "path",
+                "description": "Plivo account Auth ID."
+              },
+              {
+                "name": "message_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "message_state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "message_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve a paginated list of message records, optionally filtered by direction, type, or state."
+        },
+        {
+          "info": {
+            "name": "Send a message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.plivo.com/v1/Account/:auth_id/Message/",
+            "params": [
+              {
+                "name": "auth_id",
+                "value": "",
+                "type": "path",
+                "description": "Plivo account Auth ID."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send an SMS, MMS, or WhatsApp message."
+        },
+        {
+          "info": {
+            "name": "Retrieve a message",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plivo.com/v1/Account/:auth_id/Message/:message_uuid/",
+            "params": [
+              {
+                "name": "auth_id",
+                "value": "",
+                "type": "path",
+                "description": "Plivo account Auth ID."
+              },
+              {
+                "name": "message_uuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Fetch details of a single message by its UUID."
+        },
+        {
+          "info": {
+            "name": "List MMS media",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plivo.com/v1/Account/:auth_id/Message/:message_uuid/Media/",
+            "params": [
+              {
+                "name": "auth_id",
+                "value": "",
+                "type": "path",
+                "description": "Plivo account Auth ID."
+              },
+              {
+                "name": "message_uuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List media attachments associated with an MMS message."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
