@@ -58,6 +58,10 @@ apis:
 - aid: plivo:plivo-application-api
   name: Plivo Application API
   tags:
+  - Application
+  - Voice
+  - Webhook
+  tags_raw:
   - Applications
   - Voice
   - Webhooks
@@ -70,6 +74,9 @@ apis:
 - aid: plivo:plivo-sip-authentication-api
   name: Plivo SIP Authentication API
   tags:
+  - SIP
+  - Authentication
+  tags_raw:
   - SIP
   - Authentication
   - Endpoints
@@ -133,6 +140,9 @@ apis:
   name: Plivo Endpoint API
   tags:
   - SIP
+  - WebRTC
+  tags_raw:
+  - SIP
   - Endpoints
   - WebRTC
   properties:
@@ -144,6 +154,11 @@ apis:
 - aid: plivo:plivo-audio-stream-api
   name: Plivo Audio Stream API
   tags:
+  - Voice
+  - Streaming
+  - WebSocket
+  - Artificial Intelligence
+  tags_raw:
   - Voice
   - Streaming
   - WebSocket
