@@ -140,6 +140,10 @@ apis:
   name: Plivo Recording API
   tags:
   - Voice
+  - Recording
+  - Media
+  tags_raw:
+  - Voice
   - Recordings
   - Media
   properties:
@@ -243,6 +247,12 @@ apis:
 - aid: plivo:plivo-10dlc-api
   name: Plivo 10DLC Brand and Campaign API
   tags:
+  - 10DLC
+  - A2P
+  - Compliance
+  - Brands
+  - Campaign
+  tags_raw:
   - 10DLC
   - A2P
   - Compliance
