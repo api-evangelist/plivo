@@ -87,6 +87,13 @@ components:
           type: string
         timezone:
           type: string
+    ApiAck:
+      type: object
+      properties:
+        api_id:
+          type: string
+        message:
+          type: string
     AccountUpdate:
       type: object
       properties:
@@ -99,13 +106,6 @@ components:
         state:
           type: string
         timezone:
-          type: string
-    ApiAck:
-      type: object
-      properties:
-        api_id:
-          type: string
-        message:
           type: string
   parameters:
     AuthId:

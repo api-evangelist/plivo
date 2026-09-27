@@ -39,23 +39,12 @@ tags:
   - WhatsApp
   - SIP Trunking
   - Verify
+  - Telecommunications
+  - Real-Time
 created: '2026-05-08'
 modified: '2026-05-29'
 specificationVersion: '0.23'
 apis:
-- aid: plivo:plivo-account-api
-  name: Plivo Account API
-  tags:
-  - Account
-  - Authentication
-  properties:
-  - url: https://www.plivo.com/docs/account/api/account/
-    type: Documentation
-  - url: https://www.plivo.com/docs/account/api/
-    type: APIReference
-  description: >-
-    The Plivo Account API exposes account-level details (auth ID, auth token, billing balance, address,
-    account type, max-call configuration) and supports updating account properties.
 - aid: plivo:plivo-subaccount-api
   name: Plivo Subaccount API
   tags:
@@ -206,21 +195,6 @@ apis:
   description: >-
     The Plivo Verified Caller ID API allows trial accounts to verify outbound caller IDs for use as the
     From number in outbound calls.
-- aid: plivo:plivo-message-api
-  name: Plivo Message API
-  tags:
-  - SMS
-  - MMS
-  - WhatsApp
-  - Messaging
-  properties:
-  - url: https://www.plivo.com/docs/messaging/api/message/
-    type: Documentation
-  - url: https://www.plivo.com/docs/messaging/api/
-    type: APIReference
-  description: >-
-    The Plivo Message API sends and receives SMS, MMS, and WhatsApp messages, retrieves delivery status
-    reports, and lists historical messages.
 - aid: plivo:plivo-media-api
   name: Plivo Media API
   tags:
@@ -351,20 +325,35 @@ apis:
     configurations on outbound voice calls.
 - aid: plivo:plivo-account-api
   name: Plivo Account API
-  description: Account-level configuration and details.
+  description: The Plivo Account API exposes account-level details (auth ID, auth token, billing balance,
+    address, account type, max-call configuration) and supports updating account properties.
   tags:
   - Account
+  - Authentication
   properties:
   - type: OpenAPI
     url: openapi/plivo-account-api-openapi.yml
+  - url: https://www.plivo.com/docs/account/api/account/
+    type: Documentation
+  - url: https://www.plivo.com/docs/account/api/
+    type: APIReference
 - aid: plivo:plivo-message-api
   name: Plivo Message API
-  description: Send and retrieve SMS, MMS, and WhatsApp messages.
+  description: The Plivo Message API sends and receives SMS, MMS, and WhatsApp messages, retrieves delivery
+    status reports, and lists historical messages.
   tags:
   - Message
+  - SMS
+  - MMS
+  - WhatsApp
+  - Messaging
   properties:
   - type: OpenAPI
     url: openapi/plivo-message-api-openapi.yml
+  - url: https://www.plivo.com/docs/messaging/api/message/
+    type: Documentation
+  - url: https://www.plivo.com/docs/messaging/api/
+    type: APIReference
 common:
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/plivo/overview
