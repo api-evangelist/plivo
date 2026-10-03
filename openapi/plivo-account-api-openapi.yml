@@ -59,7 +59,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiAck'
 components:
+  parameters:
+    AuthId:
+      in: path
+      name: auth_id
+      required: true
+      schema:
+        type: string
+      description: Plivo account Auth ID.
   schemas:
+    ApiAck:
+      type: object
+      properties:
+        api_id:
+          type: string
+        message:
+          type: string
+    AccountUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        address:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        timezone:
+          type: string
     Account:
       type: object
       properties:
@@ -87,34 +115,6 @@ components:
           type: string
         timezone:
           type: string
-    ApiAck:
-      type: object
-      properties:
-        api_id:
-          type: string
-        message:
-          type: string
-    AccountUpdate:
-      type: object
-      properties:
-        name:
-          type: string
-        address:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        timezone:
-          type: string
-  parameters:
-    AuthId:
-      in: path
-      name: auth_id
-      required: true
-      schema:
-        type: string
-      description: Plivo account Auth ID.
   securitySchemes:
     basicAuth:
       type: http
