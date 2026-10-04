@@ -1,24 +1,22 @@
-# Kin Score artifact — plivo — 2026-09-01T210448
+# Kin Score artifact — plivo — 2026-09-25T232841
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: plivo
-  schema_version: 0.18.0
-  scored_at: '2026-09-01'
-  run_ts: 2026-09-01T210448
-  composite: 43.3
+  schema_version: 0.23.0
+  scored_at: '2026-09-25'
+  run_ts: 2026-09-25T232841
+  composite: 40.5
   band: developing
   facets:
-    discoverability: 50.0
-    contract_quality: 59.5
-    governance: 13.6
-    operational_transparency: 42.1
-    developer_ergonomics: 45.2
-    commercial_clarity: 40.8
+    discoverability: 48.3
+    contract_quality: 54.8
     contract_governance: 13.6
+    operational_transparency: 42.1
+    developer_ergonomics: 41.7
     access_clarity: 40.8
   agent_readiness:
-    score: 24.3
+    score: 22.1
     band: agent-aware
     dimensions:
       spec_presence: true
@@ -29,7 +27,7 @@ kin_score:
       idempotency: false
       error_semantics: false
       openapi_examples: false
-      rate_limit_signal: documented
+      rate_limit_signal: derived
       event_surface_described: derived
       agent_skills: false
       well_known_catalog: false
@@ -44,7 +42,7 @@ kin_score:
     applies: true
     regime: Telecommunications
     regime_id: telecommunications
-    score: 23.6
+    score: 14.2
     matched_via: tags
   provenance:
     agentic_access: derived
