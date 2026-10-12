@@ -1,0 +1,36 @@
+edges:
+- partner_name: novu
+  partner: novu
+  partner_match: domain
+  type: contract
+  channel: contract-enum
+  relationship: delivery-provider
+  direction: partner-built
+  evidence: https://github.com/api-evangelist/novu/blob/main/openapi/novu-channel-connections-api-openapi.yml
+  contract_reference:
+    repo: novu
+    spec_file: novu-channel-connections-api-openapi.yml
+    value: plivo
+    property: schemas.GetChannelConnectionResponseDto.providerId
+    matched_domain: plivo.com
+    detected_by: sweep-cpaas.py
+    detected: '2026-10-12'
+- partner_name: WhatsApp
+  partner: whatsapp
+  partner_match: domain
+  type: contract
+  channel: contract-enum
+  relationship: messaging-channel
+  direction: provider-built
+  evidence: https://github.com/api-evangelist/plivo/blob/main/openapi/plivo-message-api-openapi.yml
+  contract_reference:
+    repo: plivo
+    spec_file: plivo-message-api-openapi.yml
+    value: whatsapp
+    property: paths.get.parameters
+    matched_domain: whatsapp.com
+    detected_by: sweep-cpaas.py
+    detected: '2026-10-12'
+generated: '2026-10-12'
+method: searched
+checked: []
