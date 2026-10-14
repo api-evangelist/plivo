@@ -31,6 +31,28 @@ edges:
     matched_domain: whatsapp.com
     detected_by: sweep-cpaas.py
     detected: '2026-10-12'
+- partner_name: GitHub Marketplace (actions)
+  partner: github-actions
+  partner_match: aggregator
+  type: marketplace
+  marketplace: github-actions
+  channel: partner-built
+  relationship: platform-app
+  direction: third-party
+  evidence: https://github.com/marketplace/actions/plivo-sms
+  listing_count: 2
+  apps:
+  - Plivo SMS
+  - Plivo Call
+  publisher_name: Plivo
+  badges:
+  - Verified creator
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
 generated: '2026-10-12'
 method: searched
-checked: []
+checked:
+- https://github.com/marketplace?type=actions
+marketplace_apps: []
+source:
+- https://github.com/marketplace?type=actions
