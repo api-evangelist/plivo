@@ -185,6 +185,35 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-compliance-assurance.py
   first_seen: '2026-10-20'
+- partner_name: Y Combinator
+  partner: y-combinator
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.ycombinator.com/companies/plivo
+  category: accelerator portfolio participation
+  contract_reference:
+    register: Y Combinator company directory (ycombinator.com/companies/<slug>)
+    standard: null
+    spec_file: null
+    role: accelerator-portfolio-company
+    registered_name: Plivo
+    register_id: https://www.ycombinator.com/companies/plivo
+    register_country: US
+    register_website: https://plivo.com
+    matched_domain: plivo.com
+    matched_by: domain
+    signal_note: 'participation only: the accelerator''s own portfolio register lists the company (cohort / investment);
+      an ownership and participation record, not conformance or certification'
+    detected_by: sweep-accelerator-portfolios.py
+    detected: '2026-10-21'
+    batch: Summer 2012
+    year: '2011'
+    status: Active
+  detected_by: sweep-accelerator-portfolios.py
+  first_seen: '2026-10-21'
 generated: '2026-10-12'
 method: searched
 checked:
@@ -203,6 +232,11 @@ checked:
 - https://repo1.maven.org/maven2
 - https://rubygems.org/api/v1
 - https://zapier.com/api/v4/apps/
+- https://500.co/api/startups
+- https://500.co/companies
+- https://www.antler.co/portfolio
+- https://www.techstars.com/portfolio
+- https://www.ycombinator.com/companies
 marketplace_apps: []
 source:
 - https://github.com/marketplace?type=actions
