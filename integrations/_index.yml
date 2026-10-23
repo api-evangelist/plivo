@@ -259,3 +259,16 @@
     detected: '2026-10-22'
   status: not-a-workflow
   arazzo: null
+- slug: plivo-intercom-own
+  label: Intercom (own)
+  partner: intercom
+  partner_name: Intercom (own)
+  category: Messaging Channels
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.intercom.com/app-store/?app_package_code=plivo
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
